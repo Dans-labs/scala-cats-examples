@@ -33,7 +33,7 @@ object PersonParserWithValidated extends App {
     // t.validNel turns a value of type T into a value of type ValidatedNel[?, T]
     
     data.get("name")
-      .map(name => if (name.length < 3) s"name too short: $name".invalidNel
+      .map(name => if (name.length < 3) s"name too short: '$name'".invalidNel
                    else name.validNel)
       .getOrElse("no name found".invalidNel)
   }
