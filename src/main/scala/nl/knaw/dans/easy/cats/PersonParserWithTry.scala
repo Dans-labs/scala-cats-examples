@@ -22,27 +22,28 @@ object PersonParserWithTry extends App {
   case class Person(name: String, age: Int)
 
   type Data = Map[String, String]
-//  val data: Data = Map("name" -> "Richard", "age" -> "27")
-//  val p = Person("Richard", 27)
+  type Parsed[T] = Try[T]
+  //  val data: Data = Map("name" -> "Alice", "age" -> "27")
+  //  val p = Person("Alice", 27)
 
-  def getName(data: Data): Try[String] = {
+  def getName(data: Data): Parsed[String] = {
     data.get("name")
       .map(name => if (name.length < 3) Failure(new Exception(s"name too short: $name"))
                    else Success(name))
       .getOrElse(Failure(new NoSuchElementException("no name found")))
   }
 
-  def getAge(data: Data): Try[Int] = {
+  def getAge(data: Data): Parsed[Int] = {
     data.get("age")
       .map(ageString => parseInt(ageString))
       .getOrElse(Failure(new NoSuchElementException("no age found")))
   }
 
-  def parseInt(s: String): Try[Int] = Try {
+  def parseInt(s: String): Parsed[Int] = Try {
     s.toInt
   }
 
-  def getPerson(data: Data): Try[Person] = {
+  def getPerson(data: Data): Parsed[Person] = {
     for {
       name <- getName(data)
       age <- getAge(data)
