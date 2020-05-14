@@ -1,9 +1,9 @@
 package nl.knaw.dans.easy.cats
 
+import cats.instances.either._
+import cats.instances.list._
 import cats.syntax.either._
 import cats.syntax.traverse._
-import cats.instances.list._
-import cats.instances.either._
 
 object ReciprocalEitherStyle extends App {
 
@@ -29,7 +29,7 @@ object ReciprocalEitherStyle extends App {
       .flatMap(reciprocal)
       .map(stringify)
   }
-  
+
   def muchMagic(list: List[String]): Either[MyErrorStructure, List[String]] = {
     list.traverse(magic) //fail-fast
   }
