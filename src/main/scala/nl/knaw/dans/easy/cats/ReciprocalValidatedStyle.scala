@@ -1,5 +1,6 @@
 package nl.knaw.dans.easy.cats
 
+import cats.data.Validated.{ Invalid, Valid }
 import cats.data.{ Validated, ValidatedNel }
 import cats.instances.list._
 import cats.syntax.traverse._
