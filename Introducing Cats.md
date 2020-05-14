@@ -168,7 +168,7 @@ import cats.instances.list._
 import cats.syntax.either._
 import cats.syntax.traverse._
 
-type FailFast[T] = Either[String, T]
+type FailFast[T] = Either[String, T] // not required since dans-parent-pom 6.0.3
 
 def execute(s: String): FailFast[Int] = {
   // do something useful
