@@ -8,4 +8,4 @@ Further reading:
 * [Documentation of data types](https://typelevel.org/cats/datatypes.html)
 * [API documentation](https://typelevel.org/cats/api/cats/index.html)
 * An introduction to Cats (Dutch) ([PDF](Introducing%20Cats.pdf), [MarkDown](Introducing%20Cats.md))
-* [Cats book](https://books.underscore.io/scala-with-cats/scala-with-cats.pdf)
+* [Cats book](https://books.underscore.io/scala-with-cats/scala-with-cats.pdf), see also [useful chapters](useful_chapters_in_cats_book.md)
